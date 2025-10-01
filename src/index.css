@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+body {
+  width: 100%;
+  background-color: rgb(44, 43, 43);
+}
+
+p,
+h1 {
+  color: white;
+}
+
+.expense-list {
+  scrollbar-width: none;
+}
+
+@media (max-width: 1500px) {
+  .con {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+}
