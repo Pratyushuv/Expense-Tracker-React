@@ -4,7 +4,7 @@ export default function ExpenseForm({
   addExpense,
 }) {
   return (
-    <div className="expense-form flex flex-col gap-7 w-full max-w-xl ">
+    <div className="expense-form flex flex-col gap-7 w-full max-w-xl pl-10 ">
       <div className="form flex flex-col gap-3">
         <label className="text-white font-semibold font-mono">Expense</label>
         <input

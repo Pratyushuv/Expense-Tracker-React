@@ -22,3 +22,11 @@ h1 {
     gap: 20px;
   }
 }
+
+@media (max-width: 750px) {
+  .details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+}

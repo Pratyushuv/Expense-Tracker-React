@@ -4,10 +4,10 @@ import ExpenseForm from "./ExpenseForm";
 import ExpenseList from "./ExpenseList";
 import Error from "./Error";
 
-const data = { expense: "Food", amount: "200", date: "2025-09-30" };
-
 function App() {
-  const [expense, setExpense] = useState([]);
+  const [expense, setExpense] = useState(
+    () => JSON.parse(localStorage.getItem("initial")) || []
+  );
   const [addExpense, setAddExpense] = useState({
     expense: "",
     amount: "",
@@ -16,9 +16,10 @@ function App() {
   // const [isEmpty, setIsEmpty] = useState(true);
 
   useEffect(() => {
-    localStorage.setItem("initial", JSON.stringify(data));
-    setExpense([JSON.parse(localStorage.getItem("initial"))]);
-  }, []);
+    // localStorage.setItem("initial", JSON.stringify(data));
+    // setExpense([JSON.parse(localStorage.getItem("initial"))]);
+    localStorage.setItem("initial", JSON.stringify(expense));
+  }, [expense]);
 
   function handleChange(e) {
     setAddExpense({ ...addExpense, [e.target.id]: e.target.value });
@@ -40,6 +41,7 @@ function App() {
 
     if (onEmpty.length > 0) return;
     setExpense([...expense, addExpense]);
+
     setAddExpense({ expense: "", amount: "", date: "" });
   }
   // console.log(addExpense);
@@ -47,7 +49,7 @@ function App() {
 
   return (
     <div className=" flex flex-col gap-10 w-full justify-center items-center mt-10">
-      <h1 className="text-5xl text-amber-600! font-bold font-mono ">
+      <h1 className="text-5xl text-amber-600! font-bold font-mono w-full flex justify-center whitespace-nowrap pl-15">
         EXPENSE TRACKER
       </h1>
       <div className="con md: flex w-full gap-40 justify-center mt-15">
