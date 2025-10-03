@@ -19,6 +19,7 @@ function App() {
     // localStorage.setItem("initial", JSON.stringify(data));
     // setExpense([JSON.parse(localStorage.getItem("initial"))]);
     localStorage.setItem("initial", JSON.stringify(expense));
+    console.log(expense);
   }, [expense]);
 
   function handleChange(e) {
