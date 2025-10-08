@@ -40,13 +40,15 @@ function App() {
     console.log(addExpense);
     const onEmpty = Object.values(addExpense).filter((val) => val === "");
 
-    if (onEmpty.length > 0) return;
+    if (onEmpty.length > 0) return alert("Input field empty");
     setExpense([...expense, addExpense]);
 
     setAddExpense({ expense: "", amount: "", date: "" });
   }
   // console.log(addExpense);
   console.log(expense);
+
+  // function handleDelete() {}
 
   return (
     <div className=" flex flex-col gap-10 w-full justify-center items-center mt-10">
@@ -59,7 +61,11 @@ function App() {
           handleAddExpense={handleAddExpense}
           addExpense={addExpense}
         />
-        {expense.length <= 0 ? <Error /> : <ExpenseList expense={expense} />}
+        {expense.length <= 0 ? (
+          <Error />
+        ) : (
+          <ExpenseList expense={expense} handleDelete />
+        )}
       </div>
     </div>
   );

@@ -9,6 +9,9 @@ export default function ExpenseItem({ exp, index }) {
         <p className="text-2xl font-bold font-mono">{exp.amount}₹</p>
         <p className="text-2xl font-bold font-mono">{exp.date}</p>
       </div>
+      {/* <button className="delete text-white pr-1" onClick={() => handleDelete}>
+        X
+      </button> */}
     </div>
   );
 }
